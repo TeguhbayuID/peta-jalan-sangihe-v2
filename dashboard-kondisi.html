@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Kondisi Jalan - SIUJK Sangihe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    select { padding: 8px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 20px; font-family: var(--font-body); }
+    .bar-container { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 12px 0; }
+    .bar-mantap { background: var(--color-mantap); display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; font-weight: bold; }
+    .bar-tidak-mantap { background: var(--color-tidak-mantap); display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; font-weight: bold; }
+    .legend-item { display: inline-block; margin-right: 20px; font-size: 14px; }
+    .legend-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+    .stat-row { display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid #eee; font-size: 14px; color: var(--color-text-muted); }
+  </style>
+</head>
+<body>
+  <div class="app-topbar">
+    <div>
+      <a href="index.html" class="back-link">← Kembali ke Dashboard</a>
+      <h2>Kondisi Jalan: Mantap vs Tidak Mantap</h2>
+    </div>
+    <div id="userInfo" class="user-info"></div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="card" style="max-width:600px;">
+      <div id="filterContainer" style="display:none;">
+        <label for="tahunSelect">Pilih Tahun</label><br>
+        <select id="tahunSelect"></select>
+      </div>
+
+      <div id="hasilContainer">Memuat data...</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/dashboard-kondisi.js"></script>
+</body>
+</html>

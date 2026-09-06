@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Cetak DD1 - SIUJK Sangihe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+    <style>
+    .toolbar { background: white; padding: 16px 20px; border-radius: 6px; margin-bottom: 16px; display: flex; gap: 12px; align-items: center; box-shadow: 0 1px 3px rgba(14,59,67,0.08); }
+    table { border-collapse: collapse; width: 100%; background: white; font-size: 12px; }
+    th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; }
+    th { background: var(--color-teal-light); font-family: var(--font-display); }
+  
+    @media print {
+      .no-print { display: none; }
+      body { background: white; padding: 0; }
+      table { font-size: 7px; width: 100%; }
+      th, td { padding: 2px 3px; }
+      thead { display: table-header-group; }
+      tr { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-topbar no-print">
+    <div>
+      <a href="index.html" class="back-link">← Kembali ke Dashboard</a>
+      <h2>Cetak Data DD1</h2>
+    </div>
+    <div id="userInfo" class="user-info"></div>
+  </div>
+
+  <div class="content-wrap" style="max-width:100%;">
+    <div class="toolbar no-print">
+      <label for="tahunSelect" style="margin:0;">Pilih Tahun:</label>
+      <select id="tahunSelect"></select>
+      <button id="cetakBtn" class="btn-primary">🖨️ Cetak</button>
+    </div>
+
+    <div id="tabelContainer">Memuat data...</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/cetak-dd1.js"></script>
+</body>
+</html>

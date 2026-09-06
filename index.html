@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SIUJK - Peta Jalan Sangihe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <div class="hero-header">
+    <div class="top-row">
+      <div>
+        <h1>Sistem Informasi Umum Jalan Kabupaten (SIUJK)</h1>
+        <p class="subtitle">Kepulauan Sangihe · Provinsi Sulawesi Utara</p>
+      </div>
+      <div class="user-info" id="userInfo"></div>
+    </div>
+    <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none">
+      <path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,60 L0,60 Z" fill="#F3F6F7"></path>
+    </svg>
+  </div>
+
+    <div class="page-content">
+    <svg class="contour-pattern" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="contours" x="0" y="0" width="300" height="200" patternUnits="userSpaceOnUse">
+          <path d="M0,50 C75,35 75,65 150,50 C225,35 225,65 300,50" fill="none" stroke="#0E3B43" stroke-width="1.5" opacity="0.12"/>
+          <path d="M0,110 C75,92 75,128 150,110 C225,92 225,128 300,110" fill="none" stroke="#0E3B43" stroke-width="1.5" opacity="0.12"/>
+          <path d="M0,165 C75,153 75,177 150,165 C225,153 225,177 300,165" fill="none" stroke="#0E3B43" stroke-width="1.5" opacity="0.12"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#contours)"/>
+    </svg>
+
+    <div class="ripple-ring" style="width:340px; height:340px; border:1.5px solid #0E3B43; opacity:0.15;"></div>
+    <div class="ripple-ring" style="width:520px; height:520px; border:1.5px solid #C98A2C; opacity:0.14;"></div>
+    <div class="ripple-ring" style="width:700px; height:700px; border:1.5px solid #0E3B43; opacity:0.10;"></div>
+
+    <div id="menuContainer"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

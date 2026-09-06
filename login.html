@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - SIUJK Sangihe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    .login-wrap { display: flex; justify-content: center; padding-top: 60px; }
+    .login-box { background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 12px rgba(14,59,67,0.12); width: 320px; }
+    #error-msg { color: var(--color-tidak-mantap); font-size: 13px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="hero-header">
+    <div class="top-row">
+      <div>
+        <h1 style="font-size:22px;">Login</h1>
+        <p class="subtitle">Sistem Informasi Umum Jalan Kabupaten</p>
+      </div>
+    </div>
+    <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none">
+      <path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,60 L0,60 Z" fill="#F3F6F7"></path>
+    </svg>
+  </div>
+
+  <div class="login-wrap">
+    <div class="login-box">
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+        <button type="submit" class="btn-primary" style="width:100%;">Masuk</button>
+        <p id="error-msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

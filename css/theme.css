@@ -1,0 +1,246 @@
+:root {
+  --color-bg: #F3F6F7;
+  --color-navy: #0E3B43;
+  --color-navy-light: #17505B;
+  --color-ochre: #C98A2C;
+  --color-ochre-light: #F3E3C8;
+  --color-mantap: #2F9E44;
+  --color-tidak-mantap: #C1442E;
+  --color-tidak-mantap-light: #F5DAD4;
+  --color-teal-light: #DCEAEA;
+  --color-text: #1F2937;
+  --color-text-muted: #5B6B70;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--color-navy); }
+
+.hero-header {
+  background: var(--color-navy);
+  color: white;
+  padding: 28px 32px 0;
+}
+
+.hero-header .top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.hero-header .back-link {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 14px;
+}
+.hero-header .back-link:hover { color: white; }
+
+.hero-header h1 {
+  font-size: 26px;
+  margin: 6px 0 2px;
+  color: white;
+}
+
+.hero-header .subtitle {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+.hero-header .user-info {
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-header .user-info a { color: white; text-decoration: underline; }
+
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: 36px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 28px 32px 40px;
+  max-width: 1200px;
+}
+
+.menu-tile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border-radius: 6px;
+  border-left: 4px solid var(--accent, var(--color-navy));
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(14, 59, 67, 0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.menu-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 59, 67, 0.14);
+}
+
+.menu-tile .icon-wrap {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-bg, var(--color-teal-light));
+  color: var(--accent, var(--color-navy));
+}
+
+.menu-tile .icon-wrap svg { width: 20px; height: 20px; }
+
+.menu-tile .label {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.tile-peta { --accent: var(--color-navy-light); --accent-bg: var(--color-teal-light); }
+.tile-laporan { --accent: var(--color-ochre); --accent-bg: var(--color-ochre-light); }
+.tile-admin { --accent: var(--color-tidak-mantap); --accent-bg: var(--color-tidak-mantap-light); }
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin: 24px 32px 4px;
+}
+/* ==== Motif kontur latar & watermark logo ==== */
+.page-content {
+  position: relative;
+  overflow: hidden;
+  min-height: 780px;
+}
+
+.contour-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-content::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 460px;
+  height: 460px;
+  background-image: url('../assets/logo-sangihe.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.07;
+  filter: blur(0.5px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ripple-ring {
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-content .menu-grid,
+.page-content .section-label {
+  position: relative;
+  z-index: 1;
+}
+/* ==== Style bersama untuk halaman lain ==== */
+.content-wrap {
+  padding: 28px 32px 40px;
+  max-width: 900px;
+}
+
+.card {
+  background: white;
+  border-radius: 6px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(14, 59, 67, 0.08);
+  margin-bottom: 16px;
+}
+
+.btn-primary {
+  background: var(--color-navy);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+}
+.btn-primary:hover { background: var(--color-navy-light); }
+
+label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number], input[type=file], select, textarea {
+  font-family: var(--font-body);
+  padding: 9px 10px;
+  border-radius: 5px;
+  border: 1px solid #D5DBDD;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+table { font-family: var(--font-body); }
+/* ==== Topbar ramping untuk halaman fungsional (peta, dashboard, dst) ==== */
+.app-topbar {
+  background: var(--color-navy);
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-topbar .back-link { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; }
+.app-topbar .back-link:hover { color: white; }
+.app-topbar h2 { margin: 2px 0 0; font-size: 18px; color: white; }
+.app-topbar .user-info { color: rgba(255,255,255,0.9); font-size: 13px; display:flex; align-items:center; gap:10px; }
+.app-topbar .user-info a { color: white; }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Peta Jalan - SIUJK Sangihe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    #map { height: calc(100vh - 52px); width: 100%; }
+    .legend { background: white; padding: 10px 14px; border-radius: 6px; font-size: 13px; line-height: 1.7; font-family: var(--font-body); box-shadow: 0 1px 4px rgba(14,59,67,0.15); }
+    .legend strong { font-family: var(--font-display); }
+    .legend span { display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: middle; border-radius: 2px; }
+  </style>
+</head>
+<body>
+  <div class="app-topbar">
+    <div>
+      <a href="index.html" class="back-link">← Kembali ke Dashboard</a>
+      <h2>Peta Kondisi Jalan</h2>
+    </div>
+    <div id="userInfo" class="user-info"></div>
+  </div>
+
+  <div style="position: relative;">
+    <div id="map"></div>
+    <div id="loadingOverlay" style="
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: white; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-body); font-size: 15px; color: var(--color-text-muted); z-index: 1000;
+    ">
+      Memuat peta...
+    </div>
+
+    <div style="position: absolute; top: 12px; left: 60px; z-index: 1000; width: 300px;">
+      <input type="text" id="searchInput" placeholder="Cari nama ruas jalan..."
+        style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; box-shadow: 0 1px 4px rgba(0,0,0,0.2); box-sizing: border-box; font-family: var(--font-body);">
+      <div id="searchResults" style="display:none; background: white; border-radius: 6px; margin-top: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); max-height: 300px; overflow-y: auto; font-family: var(--font-body);"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/peta.js"></script>
+</body>
+</html>

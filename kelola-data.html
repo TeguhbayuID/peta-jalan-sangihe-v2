@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kelola Data - SIUJK Sangihe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    #batalEditBtn { background: #999; color: white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; margin-left: 8px; display:none; }
+    table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; font-size: 13px; }
+    th { background: var(--color-teal-light); font-family: var(--font-display); }
+    .hapus-btn { background: var(--color-tidak-mantap); color: white; border:none; padding: 4px 10px; font-size: 12px; border-radius:3px; cursor:pointer; }
+    .edit-btn { background: var(--color-ochre); color: white; border:none; padding: 4px 10px; font-size: 12px; margin-right: 4px; border-radius:3px; cursor:pointer; }
+    #searchResults { position: absolute; background: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); max-height: 250px; overflow-y: auto; width: 400px; display: none; z-index: 10; }
+    #searchResults div { padding: 8px; cursor: pointer; border-bottom: 1px solid #eee; }
+    #searchResults div:hover { background: #f3f4f6; }
+  </style>
+</head>
+<body>
+  <div class="app-topbar">
+    <div>
+      <a href="index.html" class="back-link">← Kembali ke Dashboard</a>
+      <h2>Kelola Data Riwayat Penanganan</h2>
+    </div>
+    <div id="userInfo" class="user-info"></div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="card">
+      <label for="searchInput">Cari Ruas Jalan</label>
+      <input type="text" id="searchInput" placeholder="Ketik nama ruas...">
+      <div id="searchResults"></div>
+      <div id="ruasTerpilih" style="margin-top:8px; font-weight:bold;"></div>
+    </div>
+
+    <div class="card" id="formCard" style="display:none;">
+      <h3 id="formTitle">Tambah Riwayat Penanganan</h3>
+      <input type="hidden" id="editId">
+      <label for="tahunInput">Tahun</label>
+      <input type="number" id="tahunInput" placeholder="contoh: 2025">
+
+      <label for="jenisInput">Jenis Penanganan</label>
+      <input type="text" id="jenisInput" placeholder="contoh: Rehabilitasi, Pemeliharaan Rutin">
+
+      <label for="kontrakInput">Nomor Kontrak</label>
+      <input type="text" id="kontrakInput" placeholder="contoh: 620/123/KONTRAK/2025">
+
+      <label for="nilaiInput">Nilai Kontrak (Rp)</label>
+      <input type="text" id="nilaiInput" placeholder="contoh: 500000000">
+
+      <label for="penyediaInput">Penyedia Jasa</label>
+      <input type="text" id="penyediaInput" placeholder="Nama perusahaan/CV">
+
+      <label for="keteranganInput">Keterangan (opsional)</label>
+      <textarea id="keteranganInput" rows="2"></textarea>
+
+      <button id="simpanBtn" class="btn-primary">Simpan</button>
+      <button id="batalEditBtn">Batal Edit</button>
+    </div>
+
+    <div class="card" id="tabelCard" style="display:none;">
+      <h3>Riwayat Penanganan</h3>
+      <table id="tabelRiwayat">
+        <thead>
+          <tr><th>Tahun</th><th>Jenis</th><th>No. Kontrak</th><th>Nilai</th><th>Penyedia Jasa</th><th>Aksi</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/kelola-data.js"></script>
+</body>
+</html>

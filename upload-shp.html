@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload SHP - SIUJK Sangihe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    table { border-collapse: collapse; width: 100%; background: white; font-size: 13px; margin-top: 12px; }
+    th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; }
+    th { background: var(--color-teal-light); font-family: var(--font-display); }
+    #konfirmasiBtn { background: var(--color-mantap); color: white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="app-topbar">
+    <div>
+      <a href="index.html" class="back-link">← Kembali ke Dashboard</a>
+      <h2>Upload SHP & Data Survei Baru</h2>
+    </div>
+    <div id="userInfo" class="user-info"></div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="card">
+      <label for="tahunInput">Tahun Data Survei</label>
+      <input type="number" id="tahunInput" placeholder="contoh: 2027">
+
+      <label for="shpInput">File SHP (dalam format .zip)</label>
+      <input type="file" id="shpInput" accept=".zip">
+
+      <label for="dd1Input">File Excel DD1</label>
+      <input type="file" id="dd1Input" accept=".xlsx,.xls">
+
+      <button id="prosesBtn" class="btn-primary">Proses Data</button>
+    </div>
+
+    <div id="statusMsg" style="margin-top: 16px;"></div>
+    <div id="previewContainer" style="margin-top: 20px;"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/shpjs@latest/dist/shp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>
