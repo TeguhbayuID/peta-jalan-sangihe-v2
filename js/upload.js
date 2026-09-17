@@ -23,6 +23,11 @@ async function protectAdminPage() {
 
 protectAdminPage();
 
+function normalisasiId(val) {
+  const angka = parseInt(String(val).trim(), 10);
+  return isNaN(angka) ? String(val).trim() : String(angka);
+}
+
 function findColIndex(headerRow, predicate) {
   for (let i = 0; i < headerRow.length; i++) {
     const val = headerRow[i];
@@ -133,7 +138,7 @@ document.getElementById('prosesBtn').addEventListener('click', async function ()
       const kondisiDominan = Object.keys(kondisiMap).reduce((a, b) => kondisiMap[a] >= kondisiMap[b] ? a : b);
 
       return {
-        ruas_id: String(row[colNoRuas]).trim(),
+        ruas_id: normalisasiId(row[colNoRuas]),
         nama_ruas: row[colNamaRuas],
         kecamatan: row[colKecamatan],
         panjang_km: parseFloat(row[colPanjang]) || 0,
@@ -172,7 +177,7 @@ document.getElementById('prosesBtn').addEventListener('click', async function ()
   const shpTanpaDD1 = [];
 
   geojson.features.forEach(feature => {
-    const ruasId = String(feature.properties.OBJECTID_1).trim();
+    const ruasId = normalisasiId(feature.properties.OBJECTID_1);
     const dd1Item = dd1Map[ruasId];
 
     if (!dd1Item) {

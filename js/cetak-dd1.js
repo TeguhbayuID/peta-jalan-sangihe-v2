@@ -75,12 +75,19 @@ function buatRekapHtml(dataTahunIni, tahun) {
   let kmTidakMantap = 0;
 
   dataTahunIni.forEach(item => {
-    const ruas = ruasMap[item.ruas_id] || {};
-    const panjang = ruas.panjang_km || 0;
-    if (statusMantap(item.kondisi) === 'Mantap') {
-      kmMantap += panjang;
+    const totalRincian = (item.baik_km || 0) + (item.sedang_km || 0) + (item.rusak_ringan_km || 0) + (item.rusak_berat_km || 0);
+
+    if (totalRincian > 0) {
+      kmMantap += (item.baik_km || 0) + (item.sedang_km || 0);
+      kmTidakMantap += (item.rusak_ringan_km || 0) + (item.rusak_berat_km || 0);
     } else {
-      kmTidakMantap += panjang;
+      const ruas = ruasMap[item.ruas_id] || {};
+      const panjang = ruas.panjang_km || 0;
+      if (statusMantap(item.kondisi) === 'Mantap') {
+        kmMantap += panjang;
+      } else {
+        kmTidakMantap += panjang;
+      }
     }
   });
 

@@ -38,7 +38,7 @@ async function init() {
   // Ambil semua riwayat kondisi
   const { data: riwayat, error: errorRiwayat } = await supabaseClient
     .from('riwayat_kondisi')
-    .select('ruas_id, tahun, kondisi')
+    .select('*')
     .order('tahun', { ascending: false });
 
   if (errorRiwayat) {
@@ -78,11 +78,20 @@ function tampilkanRingkasan(tahun) {
   let kmTidakMantap = 0;
 
   dataTahunIni.forEach(item => {
-    const panjang = panjangMap[item.ruas_id] || 0;
-    if (item.kondisi === 'baik' || item.kondisi === 'sedang') {
-      kmMantap += panjang;
+    const totalRincian = (item.baik_km || 0) + (item.sedang_km || 0) + (item.rusak_ringan_km || 0) + (item.rusak_berat_km || 0);
+
+    if (totalRincian > 0) {
+      // Pakai rincian KM asli per kategori (lebih akurat)
+      kmMantap += (item.baik_km || 0) + (item.sedang_km || 0);
+      kmTidakMantap += (item.rusak_ringan_km || 0) + (item.rusak_berat_km || 0);
     } else {
-      kmTidakMantap += panjang;
+      // Fallback: kalau rincian belum ada, pakai kondisi dominan + panjang total
+      const panjang = panjangMap[item.ruas_id] || 0;
+      if (item.kondisi === 'baik' || item.kondisi === 'sedang') {
+        kmMantap += panjang;
+      } else {
+        kmTidakMantap += panjang;
+      }
     }
   });
 
